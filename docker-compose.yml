@@ -16,3 +16,5 @@ lighttpd:
     ports:
         - "8001:80" # for testing purposes, (un)comment as required
     tty: true
+    environment:
+    - VHOST_DOMAIN=localhost
