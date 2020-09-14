@@ -63,7 +63,7 @@ This allows the server to respond to requests for any domain matching **\*.examp
 
 This docker container supports the feature without requiring external configuration files, but does require two changes to the _docker-compose_ example above.
 
-This `docker-compose.yml` file has added a `/vhosts` directory where your content should be stored (:
+This `docker-compose.yml` file has added a `environment:` flag to enable simple vhosts for your domain.
 
 	lighttpd:
 	  image: sebp/lighttpd
@@ -76,7 +76,7 @@ This `docker-compose.yml` file has added a `/vhosts` directory where your conten
 	    - VHOST_DOMAIN=<vhost-domain>
 	  tty: true
 
-The `- VHOST_DOMAIN=…` line (and the `environment:` preceeding it) enable the vhosts functionality, providing you provide a resolvable value for <vhost-domain>.
+The `- VHOST_DOMAIN=…` line enable the vhosts functionality, providing you provide a resolvable value for <vhost-domain>.
 Docker will use the <home-directory> mentioned before as the base for all vhost pages.
 
 Then start the lighttpd container the same way as normal:
